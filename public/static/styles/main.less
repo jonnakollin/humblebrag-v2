@@ -1,0 +1,115 @@
+@charcoal: hsl(0, 0%, 22%);
+@paleGold: #C0B283;
+@silk: #f3eae1;
+@acaciaHaze: #959c92;
+@oliveGreen: #5d6259;
+
+@playfairFont: 'Playfair Display', serif;
+@nunitoFont: 'Nunito Sans', sans-serif;
+@questrialFont: 'Questrial', sans-serif;
+
+@medium: ~'only screen and (min-width: 768px)';
+@large: ~'only screen and (min-width: 1024px)';
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+html {
+    font-family: @nunitoFont;
+    color: @charcoal;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: @questrialFont;
+    font-weight: 300;
+}
+
+h1 {
+    font-size: 32px;
+    line-height: 40px;
+
+    @media only screen and (min-width: 768px) {
+        font-size: 48px;
+        line-height: 52px;
+    }
+}
+
+h2 {
+    font-size: 22px;
+    line-height: 26px;
+
+    @media @medium {
+        font-size: 26px;
+        line-height: 30px;
+    }
+}
+
+h3 {
+    font-size: 30px;
+    line-height: 34px;
+
+    @media @medium {
+        font-size: 34px;
+        line-height: 38px;
+    }
+}
+
+h4 {
+    font-size: 15px;
+    line-height: 24px;
+}
+
+h5 {
+    font-size: 13px;
+    line-height: 24px;
+}
+
+h6 {
+    font-size: 11px;
+    line-height: 18px;
+}
+
+a {
+    color: #222;
+    text-decoration: none;
+    font-weight: 300;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+p {
+    font-size: 18px;
+    font-weight: 300;
+}
+
+a {
+    text-decoration: none;
+    color: @charcoal;
+
+    @media @large {
+        &:hover {
+            color: #C7C8C9;
+            font-weight: normal;
+            // text-decoration: underline;
+            border-bottom: 1px solid #C7C8C9;
+        }
+    }
+}
+
+img {
+    height: auto;
+    max-width: 100%;
+}
