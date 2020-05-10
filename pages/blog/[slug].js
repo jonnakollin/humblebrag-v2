@@ -1,5 +1,3 @@
-import React from 'react'
-import { useRouter } from 'next/router'
 import { createClient } from '../../contentful'
 import BlogPost from '../../components/BlogPost/BlogPost'
 
