@@ -1,17 +1,52 @@
 import React from 'react'
 import Link from 'next/link'
-import links from '../../helper/links';
-import styles from './Navigation.less';
+import styled from 'styled-components'
+import { device } from '../theme/device'
+import links from '../../helper/links'
+import DesktopNavigation from './DesktopNavigation'
+import MobileNavigation from './MobileNavigation'
+
+const Header = styled.div`
+    height: 100px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @media ${device.large} {
+        padding: 40px;
+    }
+`
+
+const StyledDesktopNavigation = styled(DesktopNavigation)`
+    display: none;
+    @media ${device.large} {
+        display: block;
+    }
+`;
+
+const StyledMobileNavigation = styled(MobileNavigation)`
+    display: block;
+    @media ${device.large} {
+        display: none;
+    }
+`;
+
+const Title = styled.h1`
+    font-size: 40px;
+    letter-spacing: 1px;
+
+    @media ${device.medium} {
+        font-size: 50px;
+    }
+`
 
 const Navigation = () => (
-    <header className={styles.header}>
-        <h1 className={styles.title}><Link href="/"><a>jonna kollin</a></Link></h1>
-        <nav className={styles.desktopMenu}>
-            {links.map((link, index) => {
-                return link.external ? <a className={styles.menuItem} key={index} href={link.path}>{link.name}</a> : <Link key={index} href={link.path}><a className={styles.menuItem}>{link.name}</a></Link>
-            })}
-        </nav>
-    </header>
+    <Header>
+        <Title><Link href="/"><a>jonna kollin</a></Link></Title>
+        <StyledDesktopNavigation links={links} />
+        <StyledMobileNavigation links={links} />
+    </Header>
 
 )
 
