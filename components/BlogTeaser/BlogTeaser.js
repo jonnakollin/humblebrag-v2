@@ -16,6 +16,7 @@ const FullWidthImage = styled.div`
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+    position: static;
     image-rendering: -webkit-optimize-contrast;
     height: 65vh;
     position: relative;
