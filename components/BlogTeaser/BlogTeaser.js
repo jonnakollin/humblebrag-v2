@@ -6,7 +6,7 @@ import dateUtil from '../../helper/utils/dateFormatter'
 
 const StyledBlogTeaser = styled.div`
     position: relative;
-    max-height: 515px;
+    max-height: 65vh;
     margin-bottom: 200px;
 `
 
