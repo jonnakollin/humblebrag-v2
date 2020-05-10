@@ -31,7 +31,7 @@ const FullWidthImage = styled.div`
 
 const ObjectPresentationInfo = styled.div`
     position: absolute;
-    margin: 0 auto -35px auto;
+    margin: 0 auto -15px auto;
     bottom: 0;
     width: 95%;
 
@@ -56,6 +56,7 @@ const ObjectPresentationInfoInner = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    text-align: center;
 `
 
 const Metadata = styled.time`
