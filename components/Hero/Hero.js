@@ -8,7 +8,6 @@ const StyledHero = styled.div`
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-attachment: fixed;
     image-rendering: -webkit-optimize-contrast;
     position: relative;
     height: 65vh;
