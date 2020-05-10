@@ -51,7 +51,7 @@ const BlogPost = ({ title, featuredImages, publishedDate, category, content, ima
                 {content && <BlogContent source={content} />}
                 <Images>
                     {images?.map((image, index) => (
-                        <img key={index} src={image.fields.file.url} />
+                        <a key={index} href={image.fields.file.url}> <img src={image.fields.file.url} /></a>
                     ))}
                 </Images>
             </StyledBlogPost>

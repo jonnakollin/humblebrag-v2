@@ -23,11 +23,6 @@ const StyledHero = styled.div`
     }
 `
 
-const Border = styled.div`
-    border: 1px solid #fff;
-    opacity: 0.99;
-`
-
 const TextContainer = styled.div`
     text-align: center;
     background: #fff;
@@ -49,7 +44,7 @@ const TextContainer = styled.div`
 `
 
 const Metadata = styled.time`
-    letter-spacing: 0.1em;
+    letter-spacing: 8px;
     text-transform: uppercase;
     font-size: 12px;
 `

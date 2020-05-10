@@ -5,45 +5,57 @@ import Link from 'next/link'
 import dateUtil from '../../helper/utils/dateFormatter'
 
 const StyledBlogTeaser = styled.div`
+    position: relative;
+    max-height: 515px;
+    margin-bottom: 200px;
+`
+
+const FullWidthImage = styled.div`
+    background-image: url(${props => props.src || 'black'});
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 515px;
+    background-attachment: fixed;
+    position: relative;
     display: flex;
     flex-direction: column;
-    margin-bottom: 40px;
+    align-items: center;
+    justify-content: center;
 `
 
-const Photos = styled.div`
-    display: flex;
-    align-items: center;
+const ObjectPresentationInfo = styled.div`
+    position: absolute;
+    margin: 0 auto -35px auto;
+    bottom: 0;
+    width: 95%;
 
-    &:last-child {
-        margin-left: 10px;
+    @media ${device.medium} {
+        max-width: 590px;
+    }
+
+    @media ${device.large} {
+        width: 590px;
     }
 `
 
-const PhotoContainer = styled.div`
-    overflow: hidden;
-    transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+const ObjectPresentationInfoBorder = styled.div`
+    border: 1px solid #fff;
+`
 
-    &:nth-child(even) {
-        margin-left: 10px;
-    }
-`;
-
-const Image = styled.img`
-    &:hover {
-        transform: scale(1.1);
-        transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
-`;
-
-const TextContainer = styled.div`
+const ObjectPresentationInfoInner = styled.div`
+    margin: 8px;
+    background: #fff;
+    padding: 50px 20px;
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
 `
 
 const Metadata = styled.time`
     font-size: 13px;
     line-height: 1.5;
-    letter-spacing: 0.1em;
+    letter-spacing: 6px;
     text-transform: uppercase;
 
     @media ${device.medium} {
@@ -52,32 +64,26 @@ const Metadata = styled.time`
 `
 
 const Title = styled.h2`
-    margin-right: auto;
-    max-width: 50%;
+
 `;
 
 const BlogTeaser = ({ title, slug, publishedDate, featuredImages }) => {
     return (
         <StyledBlogTeaser>
-            <Photos>
-                {featuredImages.map((featuredImage, index) => (
-                    <PhotoContainer key={index}>
-                        <Link
-                            href={`blog/${slug}`}
-                        >
-                            <Image src={featuredImage.fields.file.url} />
-                        </Link>
-                    </PhotoContainer>
-                ))}
-            </Photos>
-            <TextContainer>
-                <Metadata dateTime={publishedDate}>{dateUtil.getMonthAsString(publishedDate)}</Metadata>
-                <Title>
-                    <Link href={`blog/${slug}`}><a>{title}</a></Link>
-                </Title>
-            </TextContainer>
+            <FullWidthImage src={featuredImages[0].fields.file.url}>
+                <ObjectPresentationInfo>
+                    <ObjectPresentationInfoBorder>
+                        <ObjectPresentationInfoInner>
+                            <Metadata dateTime={publishedDate}>{dateUtil.getMonthAsString(publishedDate)}</Metadata>
+                            <Title>
+                                <Link href={`blog/${slug}`}><a>{title}</a></Link>
+                            </Title>
+                        </ObjectPresentationInfoInner>
+                    </ObjectPresentationInfoBorder>
+                </ObjectPresentationInfo>
+            </FullWidthImage>
         </StyledBlogTeaser>
     )
 }
 
-export default BlogTeaser;
+export default BlogTeaser

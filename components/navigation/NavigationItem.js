@@ -20,8 +20,8 @@ const StyledNavigationItem = styled.a`
 
     @media ${device.large} {
       padding: 0;
-      font-size: 24px;
-      margin-right: 20px;
+      font-size: 20px;
+      margin-right: 30px;
 
     &:last-child {
         margin-right: 0;

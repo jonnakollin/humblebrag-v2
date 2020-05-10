@@ -79,7 +79,7 @@ p {
 
 a {
     text-decoration: none;
-    color: ${color.black};
+    color: inherit;
 
     @media ${device.large} {
         &:hover {

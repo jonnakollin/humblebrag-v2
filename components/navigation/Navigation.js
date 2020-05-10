@@ -34,7 +34,16 @@ const StyledMobileNavigation = styled(MobileNavigation)`
 
 const Title = styled.h1`
     font-size: 40px;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    transition: all .5s ease;
+
+    &:hover {
+        background-color: white;
+        color: black;
+    }
 
     @media ${device.medium} {
         font-size: 50px;

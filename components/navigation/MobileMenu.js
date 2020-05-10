@@ -16,6 +16,7 @@ const StyledMenu = styled.nav`
   right: 0;
   transition: transform 0.3s ease-in-out;
   width: 100%;
+  z-index: 2;
 `
 
 const Menu = ({ open, links }) => {

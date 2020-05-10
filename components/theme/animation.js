@@ -10,13 +10,3 @@ export const zoom = keyframes`
         opacity: 1;
     }
 `
-
-export const rightToLeft = keyframes`
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-`
