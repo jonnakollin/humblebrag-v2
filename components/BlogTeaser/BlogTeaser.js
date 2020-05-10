@@ -1,9 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import { device } from '../styles/device'
+import { device } from '../theme/device'
 import Link from 'next/link'
 import dateUtil from '../../helper/utils/dateFormatter'
-// import styles from './BlogTeaser.less'
 
 const StyledBlogTeaser = styled.div`
     display: flex;

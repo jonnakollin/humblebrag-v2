@@ -1,16 +1,8 @@
-@charcoal: hsl(0, 0%, 22%);
-@paleGold: #C0B283;
-@silk: #f3eae1;
-@acaciaHaze: #959c92;
-@oliveGreen: #5d6259;
+import { createGlobalStyle } from 'styled-components'
+import { device } from './device'
+import { color } from './color'
 
-@playfairFont: 'Playfair Display', serif;
-@nunitoFont: 'Nunito Sans', sans-serif;
-@questrialFont: 'Questrial', sans-serif;
-
-@medium: ~'only screen and (min-width: 768px)';
-@large: ~'only screen and (min-width: 1024px)';
-
+const GlobalStyle = createGlobalStyle`
 *,
 *:before,
 *:after {
@@ -19,8 +11,8 @@
 }
 
 html {
-    font-family: @nunitoFont;
-    color: @charcoal;
+    font-family: 'Nunito Sans', sans-serif;
+    color: ${color.black};
     font-size: 16px;
     line-height: 1.5;
 }
@@ -31,7 +23,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: @questrialFont;
+    font-family: 'Questrial', sans-serif;
     font-weight: 300;
 }
 
@@ -39,7 +31,7 @@ h1 {
     font-size: 32px;
     line-height: 40px;
 
-    @media only screen and (min-width: 768px) {
+    @media ${device.medium} {
         font-size: 48px;
         line-height: 52px;
     }
@@ -49,7 +41,7 @@ h2 {
     font-size: 22px;
     line-height: 26px;
 
-    @media @medium {
+    @media ${device.medium} {
         font-size: 26px;
         line-height: 30px;
     }
@@ -59,7 +51,7 @@ h3 {
     font-size: 30px;
     line-height: 34px;
 
-    @media @medium {
+    @media ${device.medium} {
         font-size: 34px;
         line-height: 38px;
     }
@@ -80,16 +72,6 @@ h6 {
     line-height: 18px;
 }
 
-a {
-    color: #222;
-    text-decoration: none;
-    font-weight: 300;
-
-    &:hover {
-        text-decoration: none;
-    }
-}
-
 p {
     font-size: 18px;
     font-weight: 300;
@@ -97,14 +79,12 @@ p {
 
 a {
     text-decoration: none;
-    color: @charcoal;
+    color: ${color.black};
 
-    @media @large {
+    @media ${device.large} {
         &:hover {
-            color: #C7C8C9;
+            color: ${color.charcoal};
             font-weight: normal;
-            // text-decoration: underline;
-            border-bottom: 1px solid #C7C8C9;
         }
     }
 }
@@ -113,3 +93,6 @@ img {
     height: auto;
     max-width: 100%;
 }
+`
+
+export default GlobalStyle

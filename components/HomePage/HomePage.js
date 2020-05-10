@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
-import { device } from '../styles/device';
+import { device } from '../theme/device';
 import BlogTeaser from '../BlogTeaser/BlogTeaser'
 import Layout from '../Layout/Layout'
 
