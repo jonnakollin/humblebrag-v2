@@ -12,15 +12,21 @@ const StyledBlogTeaser = styled.div`
 
 const FullWidthImage = styled.div`
     background-image: url(${props => props.src || 'black'});
+    background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 515px;
     background-attachment: fixed;
+    image-rendering: -webkit-optimize-contrast;
+    height: 65vh;
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+      @media ${device.large} {
+         height: 75vh;
+    }
 `
 
 const ObjectPresentationInfo = styled.div`
