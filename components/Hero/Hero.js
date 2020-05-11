@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { device } from '../theme/device'
-import dateUtil from '../../helper/utils/dateFormatter'
+import PresentationInfo from '../PresentationInfo/PresentationInfo'
 
 const StyledHero = styled.div`
     background-image: url(${props => props.image || 'black'});
@@ -17,47 +17,16 @@ const StyledHero = styled.div`
     justify-content: center;
     margin-bottom: 20px;
 
-    @media ${device.medium} {
-        height: 75vh;
-    }
-`
-
-const TextContainer = styled.div`
-    text-align: center;
-    background: #fff;
-    margin: 0 auto -55px;
-    position: absolute;
-    bottom: 0;
-    color: black;
-    border-bottom: 1px solid #eee;
-    padding: ${props => props.extraPadding ? '20px' : '10px'};
-    width: 95%;
-
-    @media ${device.medium} {
-        max-width: 790px;
-    }
-
     @media ${device.large} {
-        width: 790px;
+        height: 75vh;
+        background-attachment: fixed;
     }
-`
-
-const Metadata = styled.time`
-    letter-spacing: 8px;
-    text-transform: uppercase;
-    font-size: 12px;
 `
 
 const Hero = ({ image, title, date, category }) => {
-    const withoutMetadata = !date || !category;
-
     return (
         <StyledHero image={image}>
-            <TextContainer extraPadding={withoutMetadata}>
-                {date && <Metadata>{dateUtil.getMonthAsString(date)}</Metadata>}
-                <h1>{title}</h1>
-                {category && <Metadata>{category}</Metadata>}
-            </TextContainer>
+            <PresentationInfo title={title} publishedDate={date} category={category} headline />
         </StyledHero>
     )
 }

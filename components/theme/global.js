@@ -38,12 +38,12 @@ h1 {
 }
 
 h2 {
-    font-size: 22px;
-    line-height: 26px;
+    font-size: 26px;
+    line-height: 30px;
 
     @media ${device.medium} {
-        font-size: 26px;
-        line-height: 30px;
+        font-size: 30px;
+        line-height: 34px;
     }
 }
 

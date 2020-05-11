@@ -1,13 +1,19 @@
 import React from 'react'
 import styled from 'styled-components'
 import { device } from '../theme/device'
-import Link from 'next/link'
-import dateUtil from '../../helper/utils/dateFormatter'
+import PresentationInfo from '../PresentationInfo/PresentationInfo'
 
 const StyledBlogTeaser = styled.div`
     position: relative;
-    max-height: 65vh;
-    margin-bottom: 200px;
+    margin-bottom: 50px;
+
+    @media ${device.large} {
+        margin-bottom: 150px;   
+    }
+
+     &:last-child {
+        margin-bottom: 0;
+      }
 `
 
 const FullWidthImage = styled.div`
@@ -16,77 +22,24 @@ const FullWidthImage = styled.div`
     background-repeat: no-repeat;
     background-size: cover;
     image-rendering: -webkit-optimize-contrast;
-    height: 65vh;
+    height: 95vh;
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
-      @media ${device.large} {
-         height: 75vh;
-    }
-`
-
-const ObjectPresentationInfo = styled.div`
-    position: absolute;
-    margin: 0 auto -15px auto;
-    bottom: 0;
-    width: 95%;
-
-    @media ${device.medium} {
-        max-width: 590px;
-    }
-
     @media ${device.large} {
-        width: 590px;
+         height: 75vh;
+        background-attachment: fixed;
     }
 `
-
-const ObjectPresentationInfoBorder = styled.div`
-    border: 1px solid #fff;
-`
-
-const ObjectPresentationInfoInner = styled.div`
-    margin: 8px;
-    background: #fff;
-    padding: 50px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-`
-
-const Metadata = styled.time`
-    font-size: 13px;
-    line-height: 1.5;
-    letter-spacing: 6px;
-    text-transform: uppercase;
-
-    @media ${device.medium} {
-        font-size: 16px;
-    }
-`
-
-const Title = styled.h2`
-
-`;
 
 const BlogTeaser = ({ title, slug, publishedDate, featuredImages }) => {
     return (
         <StyledBlogTeaser>
             <FullWidthImage src={featuredImages[0].fields.file.url}>
-                <ObjectPresentationInfo>
-                    <ObjectPresentationInfoBorder>
-                        <ObjectPresentationInfoInner>
-                            <Metadata dateTime={publishedDate}>{dateUtil.getMonthAsString(publishedDate)}</Metadata>
-                            <Title>
-                                <Link href={`blog/${slug}`}><a>{title}</a></Link>
-                            </Title>
-                        </ObjectPresentationInfoInner>
-                    </ObjectPresentationInfoBorder>
-                </ObjectPresentationInfo>
+                <PresentationInfo publishedDate={publishedDate} slug={slug} title={title} />
             </FullWidthImage>
         </StyledBlogTeaser>
     )
