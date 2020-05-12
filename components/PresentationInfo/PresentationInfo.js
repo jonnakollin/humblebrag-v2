@@ -58,7 +58,7 @@ const PresentationInfo = ({ publishedDate, slug, title, category, headline }) =>
         <StyledPresentationInfo>
             <Border>
                 <PresentationInfoContent>
-                    <Metadata dateTime={publishedDate}>{dateUtil.getMonthAsString(publishedDate)}</Metadata>
+                    {publishedDate && <Metadata dateTime={publishedDate}>{dateUtil.getMonthAsString(publishedDate)}</Metadata>}
                     {!headline && (
                         <Title>
                             <Link href={`blog/${slug}`}><a>{title}</a></Link>
