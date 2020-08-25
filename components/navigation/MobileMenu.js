@@ -6,7 +6,7 @@ const StyledMenu = styled.nav`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: ${({ theme }) => theme.color.charcoal};
+  background: ${({ theme }) => theme.color.beige};
   transform: ${({ open }) => open ? 'translateX(0)' : 'translateX(-100%)'};
   height: 100vh;
   text-align: left;
@@ -16,7 +16,7 @@ const StyledMenu = styled.nav`
   right: 0;
   transition: transform 0.3s ease-in-out;
   width: 100%;
-  z-index: 2;
+  z-index: 4;
 `
 
 const Menu = ({ open, links }) => {

@@ -1,6 +1,6 @@
 import React from 'react'
 import Head from 'next/head'
-import { ThemeProvider } from 'styled-components';
+import { ThemeProvider } from 'styled-components'
 import GlobalStyle from '../theme/global'
 import { theme } from '../theme/theme'
 import Navigation from '../navigation/Navigation'

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { device } from '../theme/device'
-import PresentationInfo from '../PresentationInfo/PresentationInfo'
+import BlogInfo from '../BlogInfo/BlogInfo'
 
 const StyledHero = styled.div`
     background-image: url(${props => props.image || 'black'});
@@ -15,7 +15,6 @@ const StyledHero = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-bottom: 20px;
 
     @media ${device.large} {
         height: 75vh;
@@ -23,10 +22,25 @@ const StyledHero = styled.div`
     }
 `
 
+const StyledBlogInfo = styled(BlogInfo)`
+    position: absolute;
+    margin: 0 auto -15px auto;
+    bottom: 0;
+    width: 95%;
+
+    @media ${device.medium} {
+        max-width: 590px;
+    }
+
+    @media ${device.large} {
+        width: 590px;
+    }
+`
+
 const Hero = ({ image, title, date, category }) => {
     return (
         <StyledHero image={image}>
-            <PresentationInfo title={title} publishedDate={date} category={category} headline />
+            <StyledBlogInfo title={title} publishedDate={date} category={category} headline />
         </StyledHero>
     )
 }

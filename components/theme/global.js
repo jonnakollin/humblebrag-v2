@@ -23,7 +23,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'Questrial', sans-serif;
+    font-family: 'Playfair Display', serif;
     font-weight: 300;
 }
 
@@ -33,7 +33,7 @@ h1 {
 
     @media ${device.medium} {
         font-size: 48px;
-        line-height: 52px;
+        line-height: 60px;
     }
 }
 

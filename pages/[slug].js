@@ -4,7 +4,7 @@ import StyledPage from '../components/Page/Page'
 const client = createClient()
 
 const Page = ({ page }) => {
-    return <StyledPage {...page.fields} />
+    return <StyledPage {...page?.fields} />
 }
 
 Page.getInitialProps = async (context) => {

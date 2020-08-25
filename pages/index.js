@@ -1,5 +1,6 @@
 import HomePage from '../components/HomePage/HomePage';
 import { createClient } from '../contentful'
+
 const client = createClient()
 
 const Home = ({ posts }) => (<HomePage posts={posts} />)

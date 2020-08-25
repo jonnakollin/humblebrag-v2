@@ -1,16 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
-import { device } from '../theme/device'
+import { device } from '../../theme/device'
 import Markdown from 'react-markdown'
-import Layout from '../Layout/Layout'
-import Hero from '../Hero/Hero'
-
-const StyledBlogPost = styled.div`
-    margin-bottom: 60px;
-`
+import Layout from '../../Layout/Layout'
+import PageContainer from '../../PageContainer/PageContainer'
+import Hero from '../../Hero/Hero'
+import FsLightbox from 'fslightbox-react'
 
 const BlogContent = styled(Markdown)`
-    margin: 70px auto 0;
+    margin: 0 auto 40px;
     padding: 0 10px;
     line-height: 1.7;
     font-weight: 300;
@@ -26,7 +24,6 @@ const BlogContent = styled(Markdown)`
 `
 
 const Images = styled.div`
-    margin-top: 20px;
     padding: 0 10px;
 
     @media ${device.medium} {
@@ -43,18 +40,32 @@ const Images = styled.div`
     }
 `
 
+const Image = styled.img`
+    cursor: pointer;
+`
+
 const BlogPost = ({ title, featuredImages, publishedDate, category, content, images }) => {
+    const [toggler, setToggler] = useState(false);
+
     return (
         <Layout>
-            <StyledBlogPost>
-                <Hero image={featuredImages[0].fields.file.url} title={title} date={publishedDate} category={category} />
+            <Hero image={featuredImages[0].fields.file.url} title={title} date={publishedDate} category={category} />
+            <PageContainer>
                 {content && <BlogContent source={content} />}
                 <Images>
                     {images?.map((image, index) => (
-                        <a key={index} href={image.fields.file.url}> <img src={image.fields.file.url} /></a>
+                        <Image src={image.fields.file.url} onClick={() => setToggler(!toggler)} />
                     ))}
                 </Images>
-            </StyledBlogPost>
+            </PageContainer>
+            <FsLightbox
+                toggler={toggler}
+                sources={
+                    images?.map((image) => (
+                        image?.fields?.file?.url
+                    ))
+                }
+            />
         </Layout>
     )
 }

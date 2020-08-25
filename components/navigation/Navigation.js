@@ -14,7 +14,7 @@ const Header = styled.div`
     justify-content: space-between;
 
     @media ${device.large} {
-        padding: 40px;
+        padding: 60px 40px;
     }
 `
 
@@ -33,16 +33,17 @@ const StyledMobileNavigation = styled(MobileNavigation)`
 `;
 
 const Title = styled.h1`
+    font-family: 'Questrial', sans-serif;
     font-size: 40px;
     letter-spacing: 2px;
-    background-color: black;
-    color: white;
+    background-color: ${({ theme }) => theme.color.black};
+    color: ${({ theme }) => theme.color.white};
     padding: 10px;
     transition: all .5s ease;
 
     &:hover {
-        background-color: white;
-        color: black;
+        background-color: ${({ theme }) => theme.color.white};
+        color: ${({ theme }) => theme.color.black};
     }
 
     @media ${device.medium} {
