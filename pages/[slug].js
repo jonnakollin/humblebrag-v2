@@ -1,5 +1,5 @@
 import { createClient } from '../contentful'
-import StyledPage from '../components/Page/Page'
+import StyledPage from '../components/pages/Page/Page'
 
 const client = createClient()
 

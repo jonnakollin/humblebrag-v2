@@ -1,5 +1,5 @@
 import { createClient } from '../../contentful'
-import BlogPost from '../../components/BlogPost/BlogPost'
+import BlogPost from '../../components/pages/BlogPost/BlogPost'
 
 const client = createClient()
 
