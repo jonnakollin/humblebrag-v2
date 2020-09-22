@@ -13,12 +13,12 @@ const BlogContent = styled(Markdown)`
     line-height: 1.7;
     font-weight: 300;
 
-    @media ${device.medium} {
+    @media ${({ theme }) => theme.device.medium} {
         width: 90%;
         padding: 0;
     }
 
-    @media ${device.large} {
+    @media ${({ theme }) => theme.device.large} {
         width: 790px;
     }
 `
@@ -26,14 +26,14 @@ const BlogContent = styled(Markdown)`
 const Images = styled.div`
     padding: 0 10px;
 
-    @media ${device.medium} {
+    @media ${({ theme }) => theme.device.medium} {
         padding: 0 40px;
         text-align: center;
         column-count: 2;
     }
 
 
-    @media ${device.large} {
+    @media ${({ theme }) => theme.device.large} {
         padding: 0 40px;
         text-align: center;
         column-count: 3;
@@ -54,7 +54,7 @@ const BlogPost = ({ title, featuredImages, publishedDate, category, content, ima
                 {content && <BlogContent source={content} />}
                 <Images>
                     {images?.map((image, index) => (
-                        <Image src={image.fields.file.url} onClick={() => setToggler(!toggler)} />
+                        <Image key={index} src={image.fields.file.url} onClick={() => setToggler(!toggler)} />
                     ))}
                 </Images>
             </PageContainer>

@@ -1,7 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
 import styled from 'styled-components'
-import { device } from '../theme/device'
 import links from '../../helper/links'
 import DesktopNavigation from './DesktopNavigation'
 import MobileNavigation from './MobileNavigation'
@@ -13,21 +12,21 @@ const Header = styled.div`
     align-items: center;
     justify-content: space-between;
 
-    @media ${device.large} {
+    @media ${({ theme }) => theme.device.large} {
         padding: 60px 40px;
     }
 `
 
 const StyledDesktopNavigation = styled(DesktopNavigation)`
     display: none;
-    @media ${device.large} {
+    @media ${({ theme }) => theme.device.large} {
         display: block;
     }
 `;
 
 const StyledMobileNavigation = styled(MobileNavigation)`
     display: block;
-    @media ${device.large} {
+    @media ${({ theme }) => theme.device.large} {
         display: none;
     }
 `;
@@ -46,7 +45,7 @@ const Title = styled.h1`
         color: ${({ theme }) => theme.color.black};
     }
 
-    @media ${device.medium} {
+    @media ${({ theme }) => theme.device.medium} {
         font-size: 50px;
     }
 `

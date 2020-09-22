@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { device } from '../theme/device'
 import Link from 'next/link'
 import dateUtil from '../../helper/utils/dateFormatter'
 
@@ -23,7 +22,7 @@ const BlogInfoContent = styled.div`
     justify-content: center;
     text-align: center;
 
-    @media ${device.large} {
+    @media ${({ theme }) => theme.device.large} {
         padding: 50px 20px;
     }
 `
@@ -42,7 +41,7 @@ const Title = styled.h2`
 const Headline = styled.h1`
     margin-bottom: 5px;
 
-       @media ${device.large} {
+       @media ${({ theme }) => theme.device.large} {
         margin-bottom: 10px;
     }
 `;

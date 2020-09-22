@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { device } from '../theme/device'
 import BlogInfo from '../BlogInfo/BlogInfo'
 
 const StyledHero = styled.div`
@@ -16,7 +15,7 @@ const StyledHero = styled.div`
     align-items: center;
     justify-content: center;
 
-    @media ${device.large} {
+    @media ${({ theme }) => theme.device.large} {
         height: 75vh;
         background-attachment: fixed;
     }
@@ -28,11 +27,11 @@ const StyledBlogInfo = styled(BlogInfo)`
     bottom: 0;
     width: 95%;
 
-    @media ${device.medium} {
+    @media ${({ theme }) => theme.device.medium} {
         max-width: 590px;
     }
 
-    @media ${device.large} {
+    @media ${({ theme }) => theme.device.large} {
         width: 590px;
     }
 `

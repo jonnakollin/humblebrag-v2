@@ -1,7 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
 import styled from 'styled-components'
-import { device } from '../theme/device'
 
 const StyledNavigationItem = styled.a`
     padding: 30px 0;
@@ -18,7 +17,7 @@ const StyledNavigationItem = styled.a`
       color: ${({ theme }) => theme.color.white};
     }
 
-    @media ${device.large} {
+    @media ${({ theme }) => theme.device.large} {
       padding: 0;
       font-size: 20px;
       margin-right: 30px;

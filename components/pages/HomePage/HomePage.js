@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { device } from '../../theme/device'
 import BlogTeaser from '../../BlogTeaser/BlogTeaser'
 import Layout from '../../Layout/Layout'
 import PageContainer from '../../PageContainer/PageContainer'
@@ -8,7 +7,7 @@ import PageContainer from '../../PageContainer/PageContainer'
 const Container = styled(PageContainer)`
     padding: 20px 10px;
 
-    @media ${device.large} {
+    @media ${({ theme }) => theme.device.large} {
         display: grid;
         grid-template-columns: 40% 40%;
         align-items: center;

@@ -1,9 +1,8 @@
-import config from './config.json';
 import { createClient } from 'contentful'
 
 const clientConfig = {
-    space: config.CONTENFUL_SPACE_ID,
-    accessToken: config.CONTENTFUL_ACCESS_TOKEN,
+    space: process.env.CONTENFUL_SPACE_ID,
+    accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
 }
 
 module.exports = {
