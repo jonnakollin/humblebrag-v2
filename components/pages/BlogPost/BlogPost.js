@@ -44,28 +44,21 @@ const Image = styled.img`
     cursor: pointer;
 `
 
-const BlogPost = ({ title, featuredImages, publishedDate, category, content, images }) => {
+const BlogPost = ({ title, teaserImage, publishedDate, category, content, images }) => {
     const [toggler, setToggler] = useState(false);
 
     return (
         <Layout>
-            <Hero image={featuredImages[0].fields.file.url} title={title} date={publishedDate} category={category} />
+            <Hero image={teaserImage} title={title} date={publishedDate} category={category} />
             <PageContainer>
                 {content && <BlogContent source={content} />}
                 <Images>
                     {images?.map((image, index) => (
-                        <Image key={index} src={image.fields.file.url} onClick={() => setToggler(!toggler)} />
+                        <Image key={index} src={image} onClick={() => setToggler(!toggler)} />
                     ))}
                 </Images>
             </PageContainer>
-            <FsLightbox
-                toggler={toggler}
-                sources={
-                    images?.map((image) => (
-                        image?.fields?.file?.url
-                    ))
-                }
-            />
+
         </Layout>
     )
 }

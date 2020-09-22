@@ -3,7 +3,14 @@ import { getAllBlogPostsWithSlug, getBlogPostBySlug } from '../../api/api';
 
 const BlogPostPage = ({ post }) => {
     return (
-        <BlogPost {...post.fields} />
+        <BlogPost
+            title={post?.fields?.title}
+            teaserImage={post?.fields?.teaserImage?.fields.file.url}
+            publishedDate={post?.fields?.publishedDate}
+            category={post?.fields?.category}
+            content={post?.fields?.content}
+            images={post?.fields?.images?.map(({ fields }) => fields.file.url)}
+        />
     );
 }
 
@@ -20,6 +27,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params }) => {
     const postBySlug = await getBlogPostBySlug(params?.slug)
+    console.log('hej,', postBySlug?.fields?.images?.map(({ fields }) => fields.file.url))
     return { props: { post: postBySlug } }
 }
 
