@@ -1,21 +1,16 @@
-import { createClient } from '../../contentful'
 import BlogPost from '../../components/pages/BlogPost/BlogPost'
+import { getBlogPostBySlug } from '../../api/api';
 
-const client = createClient()
-
-const Post = ({ post }) => {
+const BlogPostPage = ({ post }) => {
     return (
         <BlogPost {...post.fields} />
     );
 }
 
-Post.getInitialProps = async (context) => {
+BlogPostPage.getInitialProps = async (context) => {
     const { slug } = context.query;
-    const entries = await client.getEntries({
-        content_type: "blogPost",
-        "fields.slug": slug
-    });
-    return { post: entries.items[0] }
+    const post = await getBlogPostBySlug(slug);
+    return { post: post }
 }
 
-export default Post;
+export default BlogPostPage;

@@ -1,19 +1,14 @@
-import { createClient } from '../contentful'
-import StyledPage from '../components/pages/Page/Page'
-
-const client = createClient()
+import { Page as PageComponent } from '../components/pages/Page/Page'
+import { getPageBySlug } from '../api/api'
 
 const Page = ({ page }) => {
-    return <StyledPage {...page?.fields} />
+    return <PageComponent {...page} />
 }
 
 Page.getInitialProps = async (context) => {
-    const { slug } = context.query;
-    const entries = await client.getEntries({
-        content_type: "page",
-        "fields.slug": slug
-    });
-    return { page: entries.items[0] }
+    const { slug } = context.query
+    const page = await getPageBySlug(slug)
+    return { page: page }
 }
 
 export default Page
