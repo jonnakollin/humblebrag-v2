@@ -1,4 +1,4 @@
-import BlogPost from '../../components/pages/BlogPost/BlogPost'
+import BlogPost from '../../components/pages/BlogPost'
 import { getAllBlogPostsWithSlug, getBlogPostBySlug } from '../../api/api';
 
 const BlogPostPage = ({ post }) => {
@@ -17,7 +17,7 @@ const BlogPostPage = ({ post }) => {
 export const getStaticPaths = async () => {
     const posts = await getAllBlogPostsWithSlug()
     const paths = posts.map((post) => ({
-        params: { slug: post.slug },
+        params: { slug: post.slug }
     }))
     return {
         paths,
@@ -27,7 +27,6 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params }) => {
     const postBySlug = await getBlogPostBySlug(params?.slug)
-    console.log('hej,', postBySlug?.fields?.images?.map(({ fields }) => fields.file.url))
     return { props: { post: postBySlug } }
 }
 

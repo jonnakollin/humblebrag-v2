@@ -1,4 +1,4 @@
-import HomePage from '../components/pages/HomePage/HomePage'
+import HomePage from '../components/pages/HomePage'
 import { getAllPosts } from '../api/api'
 
 const Home = ({ posts }) => (<HomePage posts={posts} />)

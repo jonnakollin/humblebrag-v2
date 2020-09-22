@@ -1,8 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import BlogTeaser from '../../BlogTeaser/BlogTeaser'
-import Layout from '../../Layout/Layout'
-import PageContainer from '../../PageContainer/PageContainer'
+import BlogTeaser from '../BlogTeaser'
+import Layout from '../layout/Layout'
+import PageContainer from '../layout/PageContainer'
+
+interface HomePageProps {
+    posts: any;
+}
 
 const Container = styled(PageContainer)`
     padding: 20px 10px;
@@ -19,11 +23,11 @@ const Container = styled(PageContainer)`
 
 `
 
-const HomePage = ({ posts }) => {
+const HomePage = ({ posts }: HomePageProps) => {
     return (
         <Layout>
             <Container>
-                {posts?.map((post, index) => (
+                {posts?.map((post: any, index: number) => (
                     <BlogTeaser key={index} {...post.fields} />
                 ))}
             </Container>

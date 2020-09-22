@@ -1,11 +1,15 @@
 import React from 'react'
 import Head from 'next/head'
 import { ThemeProvider } from 'styled-components'
-import GlobalStyle from '../theme/global'
-import { theme } from '../theme/theme'
+import GlobalStyle from '../../styles/global'
+import { theme } from '../../styles/theme'
 import Navigation from '../navigation/Navigation'
 
-const Layout = ({ children }) => (
+interface LayoutProps {
+    children: React.ReactNode
+}
+
+const Layout = ({ children }: LayoutProps) => (
     <ThemeProvider theme={theme}>
         <Head>
             <title>heyjonna</title>

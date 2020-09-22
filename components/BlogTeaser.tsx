@@ -1,8 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 import Link from 'next/link'
-import BlogInfo from '../BlogInfo/BlogInfo'
-import { device } from '../theme/device'
+import BlogInfo from './BlogInfo'
+
+interface BlogTeaserProps {
+    title: string;
+    slug: string;
+    publishedDate: string;
+    category: string;
+    teaserImage: any
+}
 
 const Container = styled.div`
     position: relative;
@@ -77,7 +84,7 @@ const Middle = styled.div`
     }
 `
 
-const Block = styled.div`
+const Paper = styled.div`
     @media ${({ theme }) => theme.device.large} {
         position: absolute;
         width: 100%;
@@ -88,14 +95,14 @@ const Block = styled.div`
     }
 `
 
-const BlogTeaser = ({ title, slug, publishedDate, category, featuredImages }) => {
+const BlogTeaser = ({ title, slug, publishedDate, category, teaserImage }: BlogTeaserProps) => {
     return (
         <Link href={`blog/${slug}`}>
             <Container>
                 <TopTape />
-                <Image src={featuredImages[0]?.fields?.file.url} />
+                <Image src={teaserImage?.fields?.file.url} />
                 <BottomTape />
-                <Block />
+                <Paper />
                 <Middle>
                     <BlogInfo title={title} publishedDate={publishedDate} slug={slug} arrow />
                 </Middle>

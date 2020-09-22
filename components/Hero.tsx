@@ -1,8 +1,19 @@
 import React from 'react'
 import styled from 'styled-components'
-import BlogInfo from '../BlogInfo/BlogInfo'
+import BlogInfo from './BlogInfo'
 
-const StyledHero = styled.div`
+interface HeroProps {
+    image: any;
+    title: string;
+    date?: string;
+    category?: string;
+}
+
+type Hero = {
+    image: any;
+}
+
+const StyledHero = styled.div<Hero>`
     background-image: url(${props => props.image || 'black'});
     background-position: center center;
     background-repeat: no-repeat;
@@ -36,7 +47,7 @@ const StyledBlogInfo = styled(BlogInfo)`
     }
 `
 
-const Hero = ({ image, title, date, category }) => {
+const Hero = ({ image, title, date, category }: HeroProps) => {
     return (
         <StyledHero image={image}>
             <StyledBlogInfo title={title} publishedDate={date} category={category} headline />

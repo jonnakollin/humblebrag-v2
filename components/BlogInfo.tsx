@@ -1,8 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
 import Link from 'next/link'
-import dateUtil from '../../helper/utils/dateFormatter'
+import dateUtil from '../helper/utils/dateFormatter'
 
+interface BlogInfoProps {
+    className?: string;
+    publishedDate?: string;
+    slug?: string;
+    title: string;
+    category?: string
+    headline?: boolean
+    arrow?: boolean;
+}
 
 const StyledBlogInfo = styled.div`
     width: 100%;
@@ -52,7 +61,7 @@ const Arrow = styled.h3`
     margin-top: 5px;
 `
 
-const BlogInfo = ({ className, publishedDate, slug, title, category, headline, arrow }) => {
+const BlogInfo = ({ className, publishedDate, slug, title, category, headline, arrow }: BlogInfoProps) => {
     return (
         <StyledBlogInfo className={className}>
             <Border>

@@ -1,9 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import Markdown from 'react-markdown'
-import Layout from '../../Layout/Layout'
-import Hero from '../../Hero/Hero'
-import PageContainer from '../../PageContainer/PageContainer'
+import Layout from '../layout/Layout'
+import Hero from '../Hero'
+import PageContainer from '../layout/PageContainer'
+import { Page as PageType } from '../../types'
 
 const StyledPage = styled.div`
   animation: ${({ theme }) => theme.animation.zoom} 0.5s;
@@ -25,7 +26,7 @@ const Content = styled(Markdown)`
     }
 `
 
-const Page = ({ title, image, content }) => {
+const Page = ({ title, image, content }: PageType) => {
     return (
         <Layout>
             <StyledPage>

@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { device } from '../../theme/device'
 import Markdown from 'react-markdown'
-import Layout from '../../Layout/Layout'
-import PageContainer from '../../PageContainer/PageContainer'
-import Hero from '../../Hero/Hero'
-import FsLightbox from 'fslightbox-react'
+// import FsLightbox from 'fslightbox-react'
+import Layout from '../layout/Layout'
+import PageContainer from '../layout/PageContainer'
+import Hero from '../Hero'
+import { BlogPost as BlogPostType, Asset } from '../../types'
 
 const BlogContent = styled(Markdown)`
     margin: 0 auto 40px;
@@ -32,7 +32,6 @@ const Images = styled.div`
         column-count: 2;
     }
 
-
     @media ${({ theme }) => theme.device.large} {
         padding: 0 40px;
         text-align: center;
@@ -44,7 +43,7 @@ const Image = styled.img`
     cursor: pointer;
 `
 
-const BlogPost = ({ title, teaserImage, publishedDate, category, content, images }) => {
+const BlogPost = ({ title, teaserImage, publishedDate, category, content, images }: BlogPostType) => {
     const [toggler, setToggler] = useState(false);
 
     return (
