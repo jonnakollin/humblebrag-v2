@@ -1,4 +1,4 @@
-import { Page as PageComponent } from '../components/pages/Page/Page'
+import PageComponent from '../components/pages/Page/Page'
 import { getPageBySlug } from '../api/api'
 
 const Page = ({ page }) => {
