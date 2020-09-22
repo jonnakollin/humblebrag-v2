@@ -1,14 +1,28 @@
 import PageComponent from '../components/pages/Page/Page'
-import { getPageBySlug } from '../api/api'
+import { getAllPagesWithSlug, getPageBySlug } from '../api/api'
 
 const Page = ({ page }) => {
     return <PageComponent {...page} />
 }
 
-Page.getInitialProps = async (context) => {
-    const { slug } = context.query
-    const page = await getPageBySlug(slug)
-    return { page: page }
+export const getStaticPaths = async () => {
+    const pages = await getAllPagesWithSlug()
+    const paths = pages.map((page) => ({
+        params: { slug: page.slug },
+    }))
+    return {
+        paths,
+        fallback: true,
+    }
+}
+
+export const getStaticProps = async ({ params }) => {
+    const page = await getPageBySlug(params?.slug)
+    return {
+        props: {
+            page,
+        },
+    }
 }
 
 export default Page

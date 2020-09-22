@@ -3,9 +3,13 @@ import { getAllPosts } from '../api/api'
 
 const Home = ({ posts }) => (<HomePage posts={posts} />)
 
-Home.getInitialProps = async () => {
+export async function getStaticProps() {
   const posts = await getAllPosts()
-  return { posts }
+  return {
+    props: {
+      posts,
+    },
+  }
 }
 
 export default Home
